@@ -4,17 +4,20 @@ import android.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.robbyallen.deptesting.R
+import com.example.robbyallen.deptesting.services.network.NetworkManager
 import com.example.robbyallen.deptesting.ui.login.LoginFragment
 
 class MainActivity : AppCompatActivity() {
 
-    var loginFragment : LoginFragment? = null
+    // Services
+    var networkManager = NetworkManager()
+
+    // Fragments
+    var loginFragment = LoginFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        loginFragment = LoginFragment()
 
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
