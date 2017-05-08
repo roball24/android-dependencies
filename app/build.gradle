@@ -31,17 +31,13 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 
+    // kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
     // dagger 2
     compile 'com.google.dagger:dagger:2.10'
     kapt 'com.google.dagger:dagger-compiler:2.10'
     provided 'org.glassfish:javax.annotation:10.0-b28'
-
-    // kotlin
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
-    // butterknife
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
     // retrofit
     compile 'com.squareup.retrofit2:retrofit:2.2.0'

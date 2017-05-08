@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DepTesting</string>
+    <string name="login_username" />
+    <string name="login_password" />
 </resources>
