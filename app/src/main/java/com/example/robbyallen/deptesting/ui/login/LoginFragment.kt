@@ -12,7 +12,6 @@ import com.example.robbyallen.deptesting.ui.MainActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_login.*
-import org.reactivestreams.Subscriber
 
 class LoginFragment : Fragment() {
 
