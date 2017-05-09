@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.robbyallen.deptesting.R
-import com.example.robbyallen.deptesting.models.Login
 import com.example.robbyallen.deptesting.ui.MainActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -30,14 +29,15 @@ class LoginFragment : Fragment() {
                 .login(loginUsername.text.toString(), loginPassword.text.toString())
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe{
-                    fun onNext(login : Login) {
+                .subscribe(
+                    { login ->
                         Log.d("roball", "Logged In!")
-                    }
-                    fun onError(e : Throwable){
-                        Log.d("roball", "Login Error") // TODO: error handle
-                    }
-                    fun onCompleted() = Unit
-                }
+
+                    }, { e ->
+                        Log.d("roball", "Login Error")
+
+                    }, { // complete
+
+                    })
     }
 }
