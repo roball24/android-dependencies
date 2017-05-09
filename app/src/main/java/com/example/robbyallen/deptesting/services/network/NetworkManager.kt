@@ -9,25 +9,22 @@ import retrofit2.converter.gson.GsonConverterFactory
 class NetworkManager {
 
     val BASE_URL = "http://10.0.2.2:9090/api/"
-    var interceptor : HttpLoggingInterceptor = HttpLoggingInterceptor()
-    var client : OkHttpClient
-    var retrofit : Retrofit
-    var projectApi : ProjectApi
     var authNetwork : AuthNetwork
 
     init {
+        var interceptor : HttpLoggingInterceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
-        client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+        var client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
-        retrofit = Retrofit.Builder()
+        var retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
 
-        projectApi = retrofit.create(ProjectApi::class.java)
-
+        // auth
+        var projectApi = retrofit.create(ProjectApi::class.java)
         authNetwork = AuthNetwork(projectApi)
     }
 }
