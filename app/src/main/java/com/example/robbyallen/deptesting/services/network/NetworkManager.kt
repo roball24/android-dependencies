@@ -1,5 +1,7 @@
 package com.example.robbyallen.deptesting.services.network
 
+import com.example.robbyallen.deptesting.services.network.auth.AuthApi
+import com.example.robbyallen.deptesting.services.network.auth.AuthNetwork
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,7 +26,7 @@ class NetworkManager {
                 .build()
 
         // auth
-        var projectApi = retrofit.create(ProjectApi::class.java)
-        authNetwork = AuthNetwork(projectApi)
+        var authApi = retrofit.create(AuthApi::class.java)
+        authNetwork = AuthNetwork(authApi)
     }
 }
